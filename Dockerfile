@@ -21,6 +21,7 @@ RUN rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.
 
 # Install PHP and Tools 
 RUN yum -y install --setopt=tsflags=nodocs git \
+    openssl \
     openssh-clients \
     php-cli \
     php-common \
@@ -38,8 +39,12 @@ RUN yum -y install --setopt=tsflags=nodocs git \
     php-soap \
     php-xml \
     php-xmlrpc \
+    python-pip \
     && yum clean all \
     && rm -rf /var/cache/yum
+
+# Install awscli
+RUN pip install awscli
 
 # Configure PHP
 RUN sed -i -e 's~^;date.timezone =$~date.timezone = UTC~g' /etc/php.ini
