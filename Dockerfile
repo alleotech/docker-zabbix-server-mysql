@@ -1,4 +1,4 @@
-FROM zabbix/zabbix-server-mysql:centos-4.2-latest
+FROM zabbix/zabbix-server-mysql:centos-latest
 
 LABEL org.label-schema.schema-version="1.0" \
     org.label-schema.name="Zabbix Server Docker Image" \
