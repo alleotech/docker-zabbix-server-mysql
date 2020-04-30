@@ -8,7 +8,9 @@ LABEL org.label-schema.schema-version="1.0" \
 
 MAINTAINER AlleoTech <admin@alleo.tech>
 
-ARG PHP_VERSION=71
+ARG PHP_VERSION=73
+
+USER root
 
 # Install EPEL & REMI
 RUN rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm \
