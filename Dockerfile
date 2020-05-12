@@ -48,6 +48,4 @@ RUN pip install awscli
 # Configure PHP
 RUN sed -i -e 's~^;date.timezone =$~date.timezone = UTC~g' /etc/php.ini
 
-ENTRYPOINT ["/sbin/tini", "--"]
-
-CMD ["docker-entrypoint.sh"]
+ENTRYPOINT ["docker-entrypoint.sh"]
