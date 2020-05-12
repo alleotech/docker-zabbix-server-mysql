@@ -48,4 +48,6 @@ RUN pip install awscli
 # Configure PHP
 RUN sed -i -e 's~^;date.timezone =$~date.timezone = UTC~g' /etc/php.ini
 
-ENTRYPOINT ["docker-entrypoint.sh"]
+ENTRYPOINT ["/sbin/tini", "--", "/usr/bin/docker-entrypoint.sh"]
+
+CMD ["/usr/sbin/zabbix_server", "--foreground", "-c", "/etc/zabbix/zabbix_server.conf"]
